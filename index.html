@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carrera de Informática</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #07111f;
+            color: white;
+        }
+
+
+        /* ================= MENU ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(3, 12, 25, 0.95);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            box-shadow: 0 0 20px #00bfff55;
+        }
+
+
+        .logo-menu {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00c8ff;
+        }
+
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            color: #00c8ff;
+        }
+
+
+        /* ================= INICIO ================= */
+
+        #inicio {
+
+            min-height: 100vh;
+
+            padding: 130px 8% 70px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 50px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #123d5c,
+                    #07111f 65%
+                );
+        }
+
+
+        .inicio-texto {
+            max-width: 550px;
+        }
+
+
+        .inicio-texto h1 {
+
+            font-size: 52px;
+
+            color: #00c8ff;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 0 10px #00c8ff,
+                0 0 25px #00c8ff55;
+        }
+
+
+        .inicio-texto h2 {
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .inicio-texto p {
+
+            color: #cbd5e1;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= LOGO ================= */
+
+        .logo-carrera {
+            margin-top: 30px;
+        }
+
+
+        .logo-carrera img {
+
+            width: 170px;
+
+            height: 170px;
+
+            object-fit: contain;
+
+            background: white;
+
+            padding: 10px;
+
+            border-radius: 20px;
+
+            border: 3px solid #00c8ff;
+
+            box-shadow:
+                0 0 25px #00c8ff88;
+
+            transition: 0.4s;
+        }
+
+
+        .logo-carrera img:hover {
+
+            transform:
+                scale(1.08)
+                rotate(3deg);
+        }
+
+
+        /* ================= COMPUTADORA ================= */
+
+        .computadora {
+
+            width: 420px;
+
+            height: 360px;
+
+            position: relative;
+
+            animation:
+                flotar 4s ease-in-out infinite;
+        }
+
+
+        .monitor {
+
+            width: 300px;
+
+            height: 200px;
+
+            position: absolute;
+
+            top: 20px;
+
+            left: 60px;
+
+            background: #111827;
+
+            border: 8px solid #475569;
+
+            border-radius: 15px;
+
+            transform:
+                perspective(700px)
+                rotateY(-15deg);
+
+            box-shadow:
+                0 0 30px #00c8ff99;
+        }
+
+
+        .pantalla {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #06111d,
+                    #07547a
+                );
+        }
+
+
+        .pantalla::after {
+
+            content: "</>";
+
+            font-size: 65px;
+
+            color: #00c8ff;
+
+            text-shadow:
+                0 0 15px #00c8ff;
+
+            animation:
+                codigo 2s infinite alternate;
+        }
+
+
+        .base-monitor {
+
+            position: absolute;
+
+            width: 70px;
+
+            height: 80px;
+
+            background: #475569;
+
+            top: 215px;
+
+            left: 175px;
+        }
+
+
+        .base {
+
+            position: absolute;
+
+            width: 190px;
+
+            height: 25px;
+
+            background: #64748b;
+
+            border-radius: 50%;
+
+            top: 290px;
+
+            left: 115px;
+        }
+
+
+        .teclado {
+
+            position: absolute;
+
+            width: 230px;
+
+            height: 50px;
+
+            background: #1e293b;
+
+            border-radius: 8px;
+
+            bottom: 10px;
+
+            left: 90px;
+
+            transform:
+                perspective(400px)
+                rotateX(55deg);
+        }
+
+
+        .mouse {
+
+            position: absolute;
+
+            width: 35px;
+
+            height: 55px;
+
+            background: #334155;
+
+            border-radius: 50%;
+
+            bottom: 5px;
+
+            right: 40px;
+        }
+
+
+        @keyframes flotar {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+
+        @keyframes codigo {
+
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.15);
+            }
+        }
+
+
+        /* ================= SECCIONES ================= */
+
+        section {
+
+            min-height: 100vh;
+
+            padding: 120px 8% 70px;
+        }
+
+
+        .titulo {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+
+        .titulo h2 {
+
+            font-size: 40px;
+
+            color: #00c8ff;
+
+            margin-bottom: 10px;
+        }
+
+
+        .titulo p {
+
+            color: #94a3b8;
+
+            font-size: 17px;
+        }
+
+
+        /* ================= MAESTROS ================= */
+
+        #maestros {
+
+            background: #091522;
+        }
+
+
+        .personas {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        .persona {
+
+            background: #111c2d;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            border: 1px solid #155e75;
+
+            transition: 0.4s;
+        }
+
+
+        .persona:hover {
+
+            transform:
+                translateY(-10px)
+                scale(1.03);
+
+            box-shadow:
+                0 0 25px #00c8ff55;
+
+            border-color: #00c8ff;
+        }
+
+
+        .foto {
+
+            width: 170px;
+
+            height: 170px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            border: 4px solid #00c8ff;
+
+            box-shadow:
+                0 0 15px #00c8ff55;
+        }
+
+
+        .foto img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .persona h3 {
+
+            margin-top: 20px;
+
+            color: #00c8ff;
+
+            font-size: 20px;
+        }
+
+
+        .persona p {
+
+            margin-top: 8px;
+
+            color: #94a3b8;
+        }
+
+
+        /* ================= ALUMNOS ================= */
+
+        #alumnos {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #07111f,
+                    #0b1c2e
+                );
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 25px;
+
+            background: #030712;
+
+            color: #64748b;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 950px) {
+
+            #inicio {
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .personas {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav {
+
+                gap: 12px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            .inicio-texto h1 {
+
+                font-size: 38px;
+            }
+
+
+            .computadora {
+
+                transform: scale(.75);
+            }
+
+
+            .personas {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= MENU ================= -->
+
+<header>
+
+    <div class="logo-menu">
+
+        💻 INFORMÁTICA
+
+    </div>
+
+
+    <nav>
+
+        <a href="#inicio">
+            Inicio
+        </a>
+
+        <a href="#maestros">
+            Consejo de Maestros
+        </a>
+
+        <a href="#alumnos">
+            Alumnos
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= INICIO ================= -->
+
+<section id="inicio">
+
+
+    <div class="inicio-texto">
+
+
+        <h1>
+            Carrera de Informática
+        </h1>
+
+
+        <h2>
+            Tecnología, innovación y futuro
+        </h2>
+
+
+        <p>
+
+            Bienvenidos al espacio de la Carrera de Informática,
+            donde aprendemos programación, tecnología, redes,
+            desarrollo de sistemas y soluciones digitales.
+
+        </p>
+
+
+        <!-- ===========================
+             AQUÍ VA EL LOGO
+
+             Archivo:
+             logo.JPG
+
+             DEBE ESTAR JUNTO A index.html
+             =========================== -->
+
+        <div class="logo-carrera">
+
+            <img
+                src="logo.JPG"
+                alt="Logo de la Carrera de Informática">
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================= COMPUTADORA ================= -->
+
+    <div class="computadora">
+
+
+        <div class="monitor">
+
+            <div class="pantalla"></div>
+
+        </div>
+
+
+        <div class="base-monitor"></div>
+
+
+        <div class="base"></div>
+
+
+        <div class="teclado"></div>
+
+
+        <div class="mouse"></div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= MAESTROS ================= -->
+
+<section id="maestros">
+
+
+    <div class="titulo">
+
+        <h2>
+            Consejo de Maestros
+        </h2>
+
+        <p>
+            Docentes de la Carrera de Informática
+        </p>
+
+    </div>
+
+
+
+    <div class="personas">
+
+
+        <!-- ELEUTERIO -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="eleuterio.JPG"
+                    alt="Eleuterio Moran">
+
+            </div>
+
+            <h3>
+                Eleuterio Moran
+            </h3>
+
+            <p>
+                Docente
+            </p>
+
+        </div>
+
+
+
+        <!-- BELLA -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="bella.JPG"
+                    alt="Bella Vasquez">
+
+            </div>
+
+            <h3>
+                Bella Vasquez
+            </h3>
+
+            <p>
+                Docente
+            </p>
+
+        </div>
+
+
+
+        <!-- ELVIN -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="elvin.JPG"
+                    alt="Elvin Geovany">
+
+            </div>
+
+            <h3>
+                Elvin Geovany
+            </h3>
+
+            <p>
+                Docente
+            </p>
+
+        </div>
+
+
+
+        <!-- GEOVANY -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="geovany.JPG"
+                    alt="Geovany Hernandez">
+
+            </div>
+
+            <h3>
+                Geovany Hernandez
+            </h3>
+
+            <p>
+                Docente
+            </p>
+
+        </div>
+
+
+
+        <!-- RIGO -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="rigo.JPG"
+                    alt="Rigo">
+
+            </div>
+
+            <h3>
+                Rigo
+            </h3>
+
+            <p>
+                Docente
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ALUMNOS ================= -->
+
+<section id="alumnos">
+
+
+    <div class="titulo">
+
+        <h2>
+            Alumnos
+        </h2>
+
+        <p>
+            Estudiantes de la Carrera de Informática
+        </p>
+
+    </div>
+
+
+
+    <div class="personas">
+
+
+        <!-- SECIA -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="secia.JPG"
+                    alt="Secia">
+
+            </div>
+
+            <h3>
+                Secia
+            </h3>
+
+            <p>
+                Estudiante
+            </p>
+
+        </div>
+
+
+
+        <!-- VICTORIA -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="victoria.JPG"
+                    alt="Victoria">
+
+            </div>
+
+            <h3>
+                Victoria
+            </h3>
+
+            <p>
+                Estudiante
+            </p>
+
+        </div>
+
+
+
+        <!-- DAYANA -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="dayana.JPG"
+                    alt="Dayana">
+
+            </div>
+
+            <h3>
+                Dayana
+            </h3>
+
+            <p>
+                Estudiante
+            </p>
+
+        </div>
+
+
+
+        <!-- NATHALY -->
+
+        <div class="persona">
+
+            <div class="foto">
+
+                <img
+                    src="nathaly.JPG"
+                    alt="Nathaly">
+
+            </div>
+
+            <h3>
+                Nathaly
+            </h3>
+
+            <p>
+                Estudiante
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    Carrera de Informática © 2026
+
+</footer>
+
+
+</body>
+
+</html>
